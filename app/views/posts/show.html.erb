@@ -1,1 +1,23 @@
+<h1><%= @post.title %></h1>
 
+<p>
+    <%= @post.content %>
+</p>
+
+<h2> Categories </h2>
+<ul>
+<% @post.categories.each do |category|%>
+<li>
+    <%= category.name %>
+</li>
+<% end %>
+</ul>
+
+<h2> Comments </h2>
+<ul>
+<% @post.comments.each do |comment| %>
+  <li>
+    <%= comment.content %>
+  </li>
+<% end %>
+</ul>
