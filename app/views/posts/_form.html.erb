@@ -1,1 +1,22 @@
 
+<%= form_for @post do |post_builder|%>
+
+<%= post_builder.label  "title" %>
+<%= post_builder.text_field :title %>
+
+<%= post_builder.label  :content %>
+<%= post_builder.text_field :content %>
+
+<%= post_builder.label :categories %>
+<%= post_builder.collection_check_boxes :category_ids, @categories, :id, :name %>
+
+<%= post_builder.fields_for :categories, post.categories.build do |categories_builder| %>
+
+<%= categories_builder.label :name %>
+<%= categories_builder.text_field :name %>
+
+<% end %>
+
+<%= post_builder.submit %>
+
+<% end %>
