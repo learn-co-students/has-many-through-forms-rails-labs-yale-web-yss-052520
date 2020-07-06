@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   def show
+    
     @post = Post.find(params[:id])
+    @users = User.all
+    # byebug 
   end
 
   def index
@@ -9,6 +12,9 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all
+    @post.categories.build
+    @post.categories.build 
   end
 
   def create
