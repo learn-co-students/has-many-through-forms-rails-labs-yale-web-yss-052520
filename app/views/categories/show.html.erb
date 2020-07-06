@@ -1,0 +1,6 @@
+<%= @category.name %>
+
+<p>Associated Posts:</p>
+<%= @category.posts.each do |post| %>
+    <%= link_to  post.title, post_path(post) %>
+<% end %>

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
+    @commenters = @post.comments.map {|comment| User.find(comment.user_id) }.uniq 
   end
 
   def index
@@ -12,7 +13,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    # byebug
     post = Post.create(post_params)
+    # byebug
     redirect_to post
   end
 
